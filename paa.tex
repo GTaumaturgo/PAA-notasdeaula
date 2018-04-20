@@ -1,0 +1,138 @@
+\documentclass[12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pdfsync}
+\usepackage[brazilian]{babel}
+\usepackage{amssymb}
+\usepackage{mathpartir}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{ulem}
+\usepackage{xspace}
+\usepackage[boxed,lined]{algorithm2e}
+\usepackage{hyperref}
+%\usepackage{courier}
+\usepackage{ulem}
+\usepackage{makeidx}
+\makeindex
+
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{fancyhdr} %For headers and footers
+
+\renewcommand{\baselinestretch}{1.4}
+
+\usepackage{xcolor}
+\definecolor{myGreen}{RGB}{0,100,0}
+\definecolor{myRed}{RGB}{230,0,0}
+\definecolor{red}{RGB}{230,0,0}
+\definecolor{blue}{RGB}{0,0,205}
+\definecolor{myRed2}{RGB}{210,0,0}
+\definecolor{myBlue}{RGB}{0,0,205}
+\usepackage{setspace}
+\usepackage{bm}
+\usepackage{graphicx}
+\bibliographystyle{plain}
+\setlength{\parindent}{0.5cm}
+\usepackage{proof}
+%\usepackage{tikz}
+\input xy
+\xyoption{all}
+
+\usepackage[margin=2.5cm,top=2cm,left=2.5cm]{geometry}
+\usepackage{multicol}
+
+\addto\captionsenglish{\renewcommand{\chaptername}{Capítulo}}
+
+\newtheorem{definicao}{Definição}
+\newtheorem{teorema}{Teorema}
+\newtheorem{lema}{Lema}
+\newtheorem{corolario}{Corolário}
+\newtheorem{observacao}{Observação}
+\newtheorem{nota}{Nota}
+\newtheorem{notacao}{Notação}
+\newtheorem{exemplo}{Exemplo}
+\newtheorem{exercicio}{Exercício}
+
+\long\def\ignore#1{\relax}
+
+
+\title{Projeto e Análise de Algoritmos - Notas colaborativas}
+\author{Flávio L. C. de Moura}
+\begin{document}
+\maketitle
+
+\chapter{Fundamentos Matemáticos}
+
+\chapter{Notação Assintótica}
+
+\begin{definicao}[O conjunto $O(g)$] Seja $g$ uma função dos inteiros não-negativos nos reais positivos. Então $O(g)$ é o conjunto das funções (também dos inteiros não-negativos nos reais positivos) tal que existem uma constante real $c>0$ e uma constante inteira $n_0>0$ satisfazendo a desigualdade $f(n) \leq c\cdot g(n), \forall n \geq n_0$. Alternativamente, $O(g(n))$ = \{$f(n)$ : existem constantes positivas $c$ e $n_0$ tais que $0 < f(n) \leq c\cdot g(n), \forall n \geq n_0$. \}
+\end{definicao}
+
+\begin{definicao}[O conjunto $\Omega(g)$] Seja $g$ uma função dos inteiros não-negativos nos reais positivos. Então $\Omega(g)$ é o conjunto das funções (também dos inteiros não-negativos nos reais positivos) tal que existem uma constante real $c>0$ e uma constante inteira $n_0>0$ satisfazendo a desigualdade $c\cdot g(n) \leq f(n), \forall n \geq n_0$. Alternativamente, $\Omega(g(n))$ = \{$f(n)$ : existem constantes positivas $c$ e $n_0$ tais que $0 < c\cdot g(n)  \leq  f(n), \forall n \geq n_0$. \}
+\end{definicao}
+
+\begin{definicao}[O conjunto $\Theta(g)$] Seja $g$ uma função dos inteiros não-negativos nos reais positivos. Então $\Theta(g)$ é o conjunto das funções (também dos inteiros não-negativos nos reais positivos) tal que existem constantes reais positivas $c_1$ e $\cite{} _2$ e uma constante inteira $n_0>0$ satisfazendo a desigualdade $c_1\cdot g(n) \leq f(n) \leq c_2 \cdot g(n), \forall n \geq n_0$. Alternativamente, $\Theta(g(n))$ = \{$f(n)$ : existem constantes positivas $c_1, c_2$ e $n_0$ tais que $0 < c_1\cdot g(n)  \leq  f(n) \leq c_2 \cdot g(n), \forall n \geq n_0$. \}
+\end{definicao}
+
+\begin{lema}
+  Uma função $f \in O(g)$ se $\displaystyle\lim_{n \to \infty}\frac{f(n)}{g(n)} = c < \infty$, incluindo o caso em que $c=0$.
+\end{lema}
+
+\begin{lema}
+  Uma função $f \in \Omega(g)$ se $\displaystyle\lim_{n \to \infty}\frac{f(n)}{g(n)} > 0$, incluindo o caso em que o limite é igual a $\infty$.
+\end{lema}
+
+\begin{lema}
+  Uma função $f \in \Theta(g)$ se $\displaystyle\lim_{n \to \infty}\frac{f(n)}{g(n)} = c$, para alguma constante $0< c < \infty$.
+\end{lema}
+
+\begin{definicao}[Complexidade do Pior Caso] Sejam $D_n$ o conjunto das entradas de tamanho $n$ para o algoritmo em questão, e $I\in D_n$. Seja $t(I)$ o número de operações básicas executadas pelo algoritmo na entrada $I$. Definimos a função $W$ por
+$$W(n) = \max\{ t(I) \mid I \in D_n\}$$
+\end{definicao}
+
+\begin{definicao}[Complexidade do Caso Médio] Sejam $D_n$ o conjunto das entradas de tamanho $n$ para o algoritmo em questão, e $I\in D_n$. Sejam $t(I)$ o número de operações básicas executadas pelo algoritmo na entrada $I$, e $Pr(I)$ a probabilidade da entrada $I$ ocorrer. Definimos a função $A$ por
+$$A(n) = \displaystyle\sum_{I\in D_n} Pr(I)\cdot t(I)$$
+\end{definicao}
+
+\begin{lema}
+  Se $f \in O(g)$ e $g \in O(h)$ então $f \in O(h)$, ou seja $O$ é transitiva. Também são transitivos $\Omega, \Theta, o$ e $\omega$.
+\end{lema}
+
+\begin{lema}~ 
+  \begin{enumerate} 
+\item $f \in O(g)$ se, e somente se $g \in \Omega(f)$.
+\item Se $f \in \Theta(g)$ então $g \in \Theta(f)$.
+\item $\Theta$ define uma relação de equivalência sobre as funções. Cada conjunto $\Theta(f)$ é uma classe de equivalência que chamamos de \emph{classe de complexidade}.
+\item $O(f+g) = O(\max\{f,g\})$. Equações análogas valem para $\Omega$ e $\Theta$. Estas equações são úteis na análise de algoritmos complexos onde $f$ e $g$ podem descrever o trabalho feito em diferentes partes do algoritmo.
+\end{enumerate}
+\end{lema}
+
+\chapter{Algoritmos de Ordenação}
+
+\section{Ordenação em Tempo Linear}
+
+\chapter{Algoritmos em Grafos}
+
+\begin{definicao}
+  Um \textbf{grafo} (não dirigido) $G$ é um par $(V,E)$ onde $V$ é um conjunto finito não-vazio, e $E$ é um conjunto de pares não-ordenados de elementos de $V$. Um \textbf{digrafo} (ou um grafo dirigido) $G$ é um par $(V,E)$ onde $V$ é um conjunto finito não-vazio, e $E$ é uma relação binária sobre $V$.
+  \end{definicao}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+

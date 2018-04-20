@@ -1,0 +1,8 @@
+*.pdfsync
+*.out
+*.log
+*.ind
+*.ilg
+*.idx
+*.aux
+auto/*
